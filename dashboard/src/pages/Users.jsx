@@ -68,6 +68,15 @@ function Users() {
     setMessage('');
   };
 
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:2424/users/${id}`)
+      .then(() => {
+        setMessage('User deleted successfully');
+        fetchUsers();
+      })
+      .catch(() => setMessage('Failed to delete user'));
+  };
+
   const handleCancel = () => resetForm();
 
   return (
@@ -86,7 +95,7 @@ function Users() {
             value={id}
             onChange={e => setId(e.target.value)}
             required
-            disabled={userIdToEdit !== null} // Prevent changing ID when editing
+            disabled={userIdToEdit !== null}
           />
           <TextField
             label="Name"
@@ -134,7 +143,20 @@ function Users() {
                   <TableCell>{user.name}</TableCell>
                   <TableCell>{user.email}</TableCell>
                   <TableCell>
-                    <Button variant="outlined" onClick={() => handleEdit(user)}>Edit</Button>
+                    <Button
+                      variant="outlined"
+                      onClick={() => handleEdit(user)}
+                      style={{ marginRight: '8px' }}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      color="error"
+                      onClick={() => handleDelete(user.id)}
+                    >
+                      Delete
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))

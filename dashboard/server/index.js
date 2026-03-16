@@ -73,6 +73,23 @@ app.put('/users/:id', (req, res) => {
   });
 });
 
+// DELETE user
+app.delete('/users/:id', (req, res) => {
+  const id = Number(req.params.id);
+  fs.readFile(usersFilePath, 'utf8', (err, data) => {
+    if (err) return res.status(500).send('Error reading users.');
+    let users = JSON.parse(data || "[]");
+    const index = users.findIndex(u => u.id === id);
+    if (index === -1) return res.status(404).send('User not found');
+
+    users.splice(index, 1);
+    fs.writeFile(usersFilePath, JSON.stringify(users, null, 2), (err) => {
+      if (err) return res.status(500).send('Error deleting user');
+      res.send('User deleted successfully');
+    });
+  });
+});
+
 // ================= STUDENTS =================
 
 // GET students
@@ -131,6 +148,23 @@ app.put('/students/:id', (req, res) => {
     fs.writeFile(studentsFilePath, JSON.stringify(students, null, 2), (err) => {
       if (err) return res.status(500).send('Error updating student');
       res.send('Student updated successfully');
+    });
+  });
+});
+
+// DELETE student
+app.delete('/students/:id', (req, res) => {
+  const id = Number(req.params.id);
+  fs.readFile(studentsFilePath, 'utf8', (err, data) => {
+    if (err) return res.status(500).send('Error reading students.');
+    let students = JSON.parse(data || "[]");
+    const index = students.findIndex(s => s.id === id);
+    if (index === -1) return res.status(404).send('Student not found');
+
+    students.splice(index, 1);
+    fs.writeFile(studentsFilePath, JSON.stringify(students, null, 2), (err) => {
+      if (err) return res.status(500).send('Error deleting student');
+      res.send('Student deleted successfully');
     });
   });
 });

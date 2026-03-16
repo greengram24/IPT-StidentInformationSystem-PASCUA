@@ -111,6 +111,18 @@ function Students() {
 
   const handleCancel = () => resetForm();
 
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:2424/students/${id}`)
+      .then(() => {
+        setMessage("Student deleted successfully");
+        fetchStudents();
+      })
+      .catch(() => {
+        setMessage("Failed to delete student");
+      });
+  };
+
   return (
     <div style={{ padding: "20px" }}>
       <Paper style={{ padding: "20px", marginBottom: "30px" }}>
@@ -134,7 +146,7 @@ function Students() {
             value={formData.id}
             onChange={handleChange}
             required
-            disabled={studentIdToEdit !== null} // Prevent changing ID when editing
+            disabled={studentIdToEdit !== null}
           />
           <TextField
             label="First Name"
@@ -226,8 +238,16 @@ function Students() {
                   <Button
                     variant="outlined"
                     onClick={() => handleEdit(student)}
+                    style={{ marginRight: "8px" }}
                   >
                     Edit
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    color="error"
+                    onClick={() => handleDelete(student.id)}
+                  >
+                    Delete
                   </Button>
                 </TableCell>
               </TableRow>
