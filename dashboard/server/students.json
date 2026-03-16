@@ -1,0 +1,74 @@
+[
+  {
+    "id": 36484202,
+    "firstName": "vhince",
+    "middleName": "g",
+    "lastName": "pascua",
+    "course": "bsit",
+    "year": "3"
+  },
+  {
+    "id": 36482203,
+    "firstName": "avriel",
+    "middleName": "bacani",
+    "lastName": "valderama",
+    "course": "bsit",
+    "year": "3"
+  },
+  {
+    "id": 3684204,
+    "firstName": "Ben",
+    "middleName": "Lapurga",
+    "lastName": "Sales",
+    "course": "BSIT",
+    "year": "3"
+  },
+  {
+    "id": 1,
+    "firstName": "sean cody",
+    "middleName": "E",
+    "lastName": "manliclic",
+    "course": "bscs",
+    "year": "3"
+  },
+  {
+    "id": 2,
+    "firstName": "test2",
+    "middleName": "mid2",
+    "lastName": "sur2",
+    "course": "blis",
+    "year": "2"
+  },
+  {
+    "id": 3,
+    "firstName": "user3",
+    "middleName": "middle3",
+    "lastName": "sur3",
+    "course": "bscpe",
+    "year": "1"
+  },
+  {
+    "id": 4,
+    "firstName": "jhin",
+    "middleName": "jhin",
+    "lastName": "jhin",
+    "course": "BSCrim",
+    "year": "5"
+  },
+  {
+    "id": 5,
+    "firstName": "jhin",
+    "middleName": "jhin",
+    "lastName": "jhin",
+    "course": "BSCrim",
+    "year": "4"
+  },
+  {
+    "id": 6,
+    "firstName": "marion",
+    "middleName": "R",
+    "lastName": "esquivel",
+    "course": "bsit",
+    "year": "3"
+  }
+]
